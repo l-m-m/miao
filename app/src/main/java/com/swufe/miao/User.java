@@ -3,9 +3,23 @@ package com.swufe.miao;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class User implements Parcelable {
-    private String userId="";
-    private String userPwd="";
+import java.io.Serializable;
+
+public class User implements Serializable {
+    //使用Bundle或者Intent传递自定义对象，需要把自定义对象序列化
+
+    private String userId;
+    private String userPwd;
+
+    public User() {
+        userId = "";
+        userPwd = "";
+    }
+
+    public User(String userId, String userPwd) {
+        this.userId = userId;
+        this.userPwd = userPwd;
+    }
     public String getUserId() {
         return userId;
     }
@@ -22,36 +36,4 @@ public class User implements Parcelable {
         this.userPwd = userPwd;
     }
 
-
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.userId);
-        dest.writeString(this.userPwd);
-    }
-
-    public User() {
-    }
-
-    protected User(Parcel in) {
-        this.userId = in.readString();
-        this.userPwd = in.readString();
-    }
-
-    public static final Creator<User> CREATOR = new Creator<User>() {
-        @Override
-        public User createFromParcel(Parcel source) {
-            return new User(source);
-        }
-
-        @Override
-        public User[] newArray(int size) {
-            return new User[size];
-        }
-    };
 }
