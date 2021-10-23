@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/exchange_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="汇率换算器"
+            android:textColor="#0C6BC2"
+            android:textSize="22sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:id="@+id/exchange_tv_currency"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="0"
+                android:text="币 种 选 择:"
+                android:textColor="#0C6BC2"
+                android:textSize="22sp" />
+
+            <EditText
+                android:id="@+id/exchange_currency"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="2"
+                android:ems="10"
+                android:hint="请单击选择币种"
+                android:inputType="textPersonName" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:id="@+id/exchange_tv_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="0"
+                android:text="金 额 输 入:"
+                android:textColor="#0C6BC2"
+                android:textSize="22sp" />
+
+            <EditText
+                android:id="@+id/exchange_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="2"
+                android:ems="10"
+                android:hint="请输入金额"
+                android:inputType="textPersonName" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:id="@+id/exchange_tv_rmb"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="0"
+                android:text=" 人 民 币    :"
+                android:textColor="#0C6BC2"
+                android:textSize="22sp" />
+
+            <EditText
+                android:id="@+id/exchange_rmb"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="2"
+                android:ems="10"
+                android:hint="换算结果显示"
+                android:inputType="textPersonName" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
