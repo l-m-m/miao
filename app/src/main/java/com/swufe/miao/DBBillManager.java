@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,11 +33,33 @@ public class DBBillManager {
         dbBill.insert(TBNAME, null, value);
         dbBill.close();
     }
-
-    //删除一个账单
-    public void deleteAll(int id){
+    //添加所有汇率
+    public void addAll(List<Bill> list){
+        SQLiteDatabase dbBill = dbBillHelper.getWritableDatabase();
+        for (Bill bill : list) {
+            ContentValues value = new ContentValues();
+            value.put("uid", bill.getUser_id());
+            value.put("cid", bill.getCategory_id());
+            value.put("flag", bill.getFlag());
+            value.put("cost", bill.getCost());
+            value.put("year", bill.getYear());
+            value.put("month", bill.getMonth());
+            value.put("day", bill.getDay());
+            dbBill.insert(TBNAME, null, value);
+        }
+        dbBill.close();
+    }
+    //删除所有账单
+    public void deleteAll(){
         SQLiteDatabase dbBill = dbBillHelper.getWritableDatabase();
         dbBill.delete(TBNAME,null,null);
+        dbBill.close();
+    }
+
+    //删除一条账单
+    public void remove(int id){
+        SQLiteDatabase dbBill = dbBillHelper.getWritableDatabase();
+        dbBill.delete(TBNAME, "ID=?", new String[]{String.valueOf(id)});
         dbBill.close();
     }
 

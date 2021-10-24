@@ -9,7 +9,7 @@
         <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/drawable/title_list_selector.xml" value="0.1953125" />
         <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/layout/a.xml" value="0.16458333333333333" />
         <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/layout/aa.xml" value="0.16666666666666666" />
-        <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/layout/account_income.xml" value="0.14666666666666667" />
+        <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/layout/account_income.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/layout/account_outcome.xml" value="0.17916666666666667" />
         <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/layout/activity_main.xml" value="0.17916666666666667" />
         <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/layout/app_toolbar.xml" value="0.17916666666666667" />
@@ -25,6 +25,7 @@
         <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/layout/shifting_bottom_navigation_item.xml" value="0.17916666666666667" />
         <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/layout/test.xml" value="0.16666666666666666" />
         <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/menu/menu_main.xml" value="0.17916666666666667" />
+        <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/menu/month.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/menu/rate_catagory.xml" value="0.17916666666666667" />
         <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1953125" />
       </map>

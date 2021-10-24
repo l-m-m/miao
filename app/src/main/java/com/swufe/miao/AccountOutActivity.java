@@ -34,6 +34,10 @@ public class AccountOutActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_outcome);
 
+        //获取当前用户ID
+        SharedPreferences sharedPreferences = getSharedPreferences("myUser", Activity.MODE_PRIVATE);
+        user_id = sharedPreferences.getString("user_id", "");
+        Log.i(TAG,"user_id:"+user_id);
     }
 
     public void onClick(View btn) {
@@ -111,10 +115,6 @@ public class AccountOutActivity extends AppCompatActivity implements View.OnClic
                 }
             }
         });
-        //获取当前用户ID
-        SharedPreferences sharedPreferences = getSharedPreferences("myUser", Activity.MODE_PRIVATE);
-        user_id = sharedPreferences.getString("user_id", "");
-        Log.i(TAG,"user_id:"+user_id);
         //插入数据库
         if(btn.getId()==R.id.out_btn){
             Bill bill_new = new Bill(user_id,category_id,0,amount,out_year,out_month,out_day);
@@ -133,10 +133,10 @@ public class AccountOutActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 out_year=year;
-                out_month=monthOfYear;
+                out_month=monthOfYear+1;
                 out_day=dayOfMonth;
                 Log.i(TAG,"calendar:"+out_year+"-"+out_month+"-"+out_day);
-                AccountOutActivity.this.etime.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+                AccountOutActivity.this.etime.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
