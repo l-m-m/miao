@@ -1,6 +1,8 @@
 package com.swufe.miao;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,9 +37,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if(user!=null) {//登录成功跳转对应类型界面
                     Toast.makeText(LoginActivity.this, user.getUserId() + "登录成功", Toast.LENGTH_SHORT).show();
                     list.add(user);
+                    //考虑将当前用户用户名写入SharedPreferences
+                    SharedPreferences sp = getSharedPreferences("myUser", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor=sp.edit();
+                    editor.putString("user_id",user.getUserId());
+                    editor.apply();
+                    Log.i("run","共享当前User信息" + user.getUserId());
                     //选择跳转页面
                     intent = new Intent(this, MainActivity.class);
-                    intent.putExtra("LoginUser", list);
+//                    Bundle bdl=new Bundle();//考虑使用Bundle以便各个页面获取
+//                    bdl.putSerializable("LoginUser",list);
+//                    intent.putExtras(bdl);
+                    //intent.putExtra("LoginUser", list);
                     startActivity(intent);
                 }else{
                     Toast.makeText(LoginActivity.this,"登录失败，密码错误或账号不存在！",Toast.LENGTH_SHORT).show();

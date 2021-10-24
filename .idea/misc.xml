@@ -4,8 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1953125" />
+        <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/drawable/main_btn.xml" value="0.1953125" />
+        <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/drawable/title_button.xml" value="0.1953125" />
+        <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/drawable/title_list_selector.xml" value="0.1953125" />
         <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/layout/a.xml" value="0.16458333333333333" />
-        <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/layout/aa.xml" value="0.16458333333333333" />
+        <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/layout/aa.xml" value="0.16666666666666666" />
+        <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/layout/account_income.xml" value="0.14666666666666667" />
+        <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/layout/account_outcome.xml" value="0.17916666666666667" />
         <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/layout/activity_main.xml" value="0.17916666666666667" />
         <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/layout/app_toolbar.xml" value="0.17916666666666667" />
         <entry key="..\:/AndroidStudioProjects/miao/app/src/main/res/layout/app_top_date.xml" value="0.17916666666666667" />

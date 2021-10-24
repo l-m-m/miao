@@ -1,5 +1,6 @@
 package com.swufe.miao;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -57,6 +58,7 @@ public class DBRateManager {
         return rateList;
     }
 
+    @SuppressLint("Range")
     public RateItem findByName(String name){
         SQLiteDatabase dbRate = dbRateHelper.getReadableDatabase();
         Cursor cursor = dbRate.query(TBNAME, null, "CURNAME=?", new String[]{name}, null, null, null);

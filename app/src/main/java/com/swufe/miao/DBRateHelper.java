@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBRateHelper extends SQLiteOpenHelper {
 
-    private static final int VERSION = 1;
+    private static final int VERSION = 3;
     private static final String DB_NAME = "miao.db";
     public static final String TABLE_NAME = "db_rates";
 

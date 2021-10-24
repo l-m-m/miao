@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    public static final int VERSION=1;//版本号
+    public static final int VERSION=3;//版本号
     public static final String DB_NAME = "miao.db";
     public static final String TABLE_NAME = "userinfo";
     public static final String COLUMN_USERID = "uid";
@@ -37,8 +37,8 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
         db.execSQL("DROP TABLE  IF EXISTS " + TABLE_NAME);
-        db.execSQL("CREATE TABLE "+TABLE_NAME+"(" + COLUMN_USERID +
-                "TEXT PRIMARY KEY, "+ COLUMN_USERPWD + "TEXT)");
+        db.execSQL("CREATE TABLE "+TABLE_NAME+"('" + COLUMN_USERID +
+                "' TEXT PRIMARY KEY, '"+ COLUMN_USERPWD + "' TEXT)");
     }
 
 }
