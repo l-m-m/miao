@@ -32,10 +32,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class PieCharInActivity extends AppCompatActivity  implements View.OnClickListener{
+public class PieCharOutActivity extends AppCompatActivity  implements View.OnClickListener{
     private static final String TAG="PieChartActivity";
     DBBillManager dbBillManager;
-    float[] total_income;
+    float[] total_outcome;
     List<Bill> bills;
     String user_id;
     Intent intent;
@@ -50,7 +50,7 @@ public class PieCharInActivity extends AppCompatActivity  implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pie_chart_income);
+        setContentView(R.layout.pie_chart_outcome);
         mChart = findViewById(R.id.pieChart);
 
         //获得当前用户ID
@@ -59,7 +59,7 @@ public class PieCharInActivity extends AppCompatActivity  implements View.OnClic
         Log.i(TAG,"user_id:"+user_id);
 
         //获取所有账单
-        dbBillManager = new DBBillManager(PieCharInActivity.this);
+        dbBillManager = new DBBillManager(PieCharOutActivity.this);
         bills=dbBillManager.listAll();
 
         //默认选择当前月份
@@ -81,7 +81,7 @@ public class PieCharInActivity extends AppCompatActivity  implements View.OnClic
 
     public void onClick(View btn) {
         if(btn.getId()==R.id.btn_income){
-            intent = new Intent(this, PieCharOutActivity .class);
+            intent = new Intent(this, PieCharInActivity .class);
             startActivity(intent);
         }
         if(btn.getId()==R.id.btn_main){
@@ -100,24 +100,27 @@ public class PieCharInActivity extends AppCompatActivity  implements View.OnClic
             intent = new Intent(this, RateListActivity .class);
             startActivity(intent);
         }
+
     }
+
     //获得详细账单展示
-    public float[] inDetail(int month){
-        total_income= new float[]{0, 0, 0, 0, 0, 0, 0};
+    public float[] outDetail(int month){
+        total_outcome= new float[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        //String[] a2={"","生活费","奖学金","工资","理财","兼职","其他"};
         for(Bill bill:bills){
             if(user_id.equals(bill.getUser_id()) && month==bill.getMonth()){
-                for(int i=1;i<=6;i++){
-                    if(i==bill.getCategory_id()){
-                        total_income[i]+=bill.getCost();
+                for(int i=1;i<=9;i++){
+                    if(i==bill.getCategory_id()) {
+                        total_outcome[i] += bill.getCost();
                     }
                 }
             }
         }
-        return total_income;
+        return total_outcome;
     }
     //月份选择 下拉菜单
     private void initMonthMenu(TextView data_month){
-        pm=new PopupMenu(PieCharInActivity.this,data_month);
+        pm=new PopupMenu(PieCharOutActivity.this,data_month);
         Menu menu=pm.getMenu();
         pm.getMenuInflater().inflate(R.menu.month,menu);
         // 添加单击数据项事件
@@ -135,11 +138,11 @@ public class PieCharInActivity extends AppCompatActivity  implements View.OnClic
         });
     }
     private void setData(int month){
-        String[] a2={"","生活费","奖学金","工资","理财","兼职","其他"};
+        String[] a1={"","服饰","餐饮","住房","交通","娱乐","学习","美容","医疗","社交"};
         entries.clear();
 
-        for(int i=1;i<=6;i++){
-            entries.add(new PieEntry(inDetail(month)[i], a2[i]));
+        for(int i=1;i<=9;i++){
+            entries.add(new PieEntry(outDetail(month)[i], a1[i]));
         }
 
         mChart.setUsePercentValues(true); //设置是否显示数据实体(百分比，true:以下属性才有意义)
@@ -193,17 +196,24 @@ public class PieCharInActivity extends AppCompatActivity  implements View.OnClic
         dataSet.setSelectionShift(5f);
 
         // add a lot of colors
+
         ArrayList<Integer> colors = new ArrayList<Integer>();
+
         for (int c : ColorTemplate.VORDIPLOM_COLORS)
             colors.add(c);
+
         for (int c : ColorTemplate.JOYFUL_COLORS)
             colors.add(c);
+
         for (int c : ColorTemplate.COLORFUL_COLORS)
             colors.add(c);
+
         for (int c : ColorTemplate.LIBERTY_COLORS)
             colors.add(c);
+
         for (int c : ColorTemplate.PASTEL_COLORS)
             colors.add(c);
+
         colors.add(ColorTemplate.getHoloBlue());
 
         dataSet.setColors(colors);

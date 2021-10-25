@@ -1,5 +1,6 @@
 package com.swufe.miao;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.Spinner;
 
@@ -26,6 +28,7 @@ public class ExchangeActivity extends AppCompatActivity {
     String currencyStr;//币种
     float amount;//金额
     float rate;//汇率
+    ImageButton b1,b2,b3,b4,b5;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +60,40 @@ public class ExchangeActivity extends AppCompatActivity {
                     amount = Float.parseFloat(inp);
                     rmb_edt.setText(""+1/rate*amount);
                 }
+            }
+        });
+
+        //下方按钮
+        b1=findViewById(R.id.btn_main);
+        b2=findViewById(R.id.btn_pie);
+        b3=findViewById(R.id.btn_account);
+        b5=findViewById(R.id.btn_rate);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(ExchangeActivity.this, MainActivity.class);
+                startActivity(in);
+            }
+        });
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(ExchangeActivity.this, PieCharOutActivity.class);
+                startActivity(in);
+            }
+        });
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(ExchangeActivity.this, AccountOutActivity.class);
+                startActivity(in);
+            }
+        });
+        b5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(ExchangeActivity.this, RateListActivity.class);
+                startActivity(in);
             }
         });
 

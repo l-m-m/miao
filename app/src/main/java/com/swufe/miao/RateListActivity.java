@@ -1,13 +1,17 @@
 package com.swufe.miao;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -33,6 +37,7 @@ public class RateListActivity extends AppCompatActivity implements Runnable{
     private String logDate = "";
     private final String DATE_SP_KEY = "lastRateDateStr";
     Handler handler;
+    ImageButton b1,b2,b3,b4,b5;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +67,40 @@ public class RateListActivity extends AppCompatActivity implements Runnable{
         };
         Thread t = new Thread(this);
         t.start();
+
+        //下方按钮
+        b1=findViewById(R.id.btn_main);
+        b2=findViewById(R.id.btn_pie);
+        b3=findViewById(R.id.btn_account);
+        b4=findViewById(R.id.btn_exchange);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(RateListActivity.this, MainActivity.class);
+                startActivity(in);
+            }
+        });
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(RateListActivity.this, PieCharOutActivity.class);
+                startActivity(in);
+            }
+        });
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(RateListActivity.this, AccountOutActivity.class);
+                startActivity(in);
+            }
+        });
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(RateListActivity.this, ExchangeActivity.class);
+                startActivity(in);
+            }
+        });
     }
 
     public void run() {

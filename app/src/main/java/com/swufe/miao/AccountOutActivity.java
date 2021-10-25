@@ -15,6 +15,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.view.View.OnFocusChangeListener;
+import android.widget.ImageButton;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -28,6 +30,7 @@ public class AccountOutActivity extends AppCompatActivity implements View.OnClic
     int out_year,out_month,out_day;
     int category_id;
     EditText etime;
+    ImageButton b1,b2,b3,b4,b5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,25 @@ public class AccountOutActivity extends AppCompatActivity implements View.OnClic
             intent = new Intent(this, AccountInActivity.class);
             startActivity(intent);
         }
+
+        //下方页面选择
+        if(btn.getId()==R.id.btn_main){
+            intent = new Intent(this, MainActivity .class);
+            startActivity(intent);
+        }
+        if(btn.getId()==R.id.btn_pie){
+            intent = new Intent(this, PieCharOutActivity .class);
+            startActivity(intent);
+        }
+        if(btn.getId()==R.id.btn_exchange){
+            intent = new Intent(this, ExchangeActivity .class);
+            startActivity(intent);
+        }
+        if(btn.getId()==R.id.btn_rate){
+            intent = new Intent(this, RateListActivity .class);
+            startActivity(intent);
+        }
+
         Log.i(TAG,"category:");
         switch (btn.getId()){
             case R.id.outcome_iv1:
