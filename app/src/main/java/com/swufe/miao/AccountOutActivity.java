@@ -120,6 +120,8 @@ public class AccountOutActivity extends AppCompatActivity implements View.OnClic
             Bill bill_new = new Bill(user_id,category_id,0,amount,out_year,out_month,out_day);
             DBBillManager dbBillManager = new DBBillManager(AccountOutActivity.this);
             dbBillManager.addBill(bill_new);
+//            Bill b1 = new Bill("0417",7,0,500,2021,10,1);
+//            dbBillManager.addBill(b1);
             //跳转回明细页面
             intent = new Intent(this, MainActivity.class);
             startActivity(intent);

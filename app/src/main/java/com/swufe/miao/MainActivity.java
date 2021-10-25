@@ -79,10 +79,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //长按删除
         myBillList.setOnItemLongClickListener(this);
 
-
         //下拉菜单
         data_month= findViewById(R.id.data_month);
-        initRateMenu(data_month);
+        initMonthMenu(data_month);
         data_month.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     //根据月份设置收入支出
     public void amountSetting(int month){
         Log.i(TAG,"month_Setting:"+month);
-        int total_income=0,total_outcome=0;
+        float total_income=0,total_outcome=0;
         for(Bill bill:bills){
             Log.i(TAG,"month:"+bill.getMonth());
             Log.i(TAG,"cost:"+bill.getCost());
@@ -198,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     //月份选择 下拉菜单
-    private void initRateMenu(TextView data_month){
+    private void initMonthMenu(TextView data_month){
         pm=new PopupMenu(MainActivity.this,data_month);
         Menu menu=pm.getMenu();
         pm.getMenuInflater().inflate(R.menu.month,menu);

@@ -106,6 +106,9 @@ public class AccountInActivity extends AppCompatActivity implements View.OnClick
         if(btn.getId()==R.id.in_btn){
             Bill bill_new = new Bill(user_id,category_id,1,amount,in_year,in_month,in_day);
             DBBillManager dbBillManager = new DBBillManager(AccountInActivity.this);
+            //dbBillManager.deleteAll(); 报错时解决问题
+//            Bill b1 = new Bill("0417",1,1,1234,2021,10,1);
+//            dbBillManager.addBill(b1);
             dbBillManager.addBill(bill_new);
             //跳转回明细页面
             intent = new Intent(this, MainActivity.class);
