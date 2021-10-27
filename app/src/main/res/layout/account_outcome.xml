@@ -311,7 +311,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="请输入金额"
-            android:inputType="textPersonName"
+            android:inputType="numberDecimal"
             android:minHeight="48dp" />
     </LinearLayout>
     <LinearLayout
