@@ -220,8 +220,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             intent = new Intent(this, RateListActivity.class);
             startActivity(intent);
         }
-        if(item.getItemId()==R.id.menu_LogOut){
-        }
         return super.onOptionsItemSelected(item);
     }
 
